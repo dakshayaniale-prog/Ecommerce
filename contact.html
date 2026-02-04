@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — LUXORA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html" class="logo">LUX<span>ORA</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Shop</a></li>
+    <li><a href="cart.html">Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="section-tag">— Get in Touch</p>
+  <h2>Contact Us</h2>
+  <p class="page-header-sub">We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+</div>
+
+<!-- CONTACT LAYOUT -->
+<section class="contact-section">
+  <div class="contact-left">
+    <!-- Info Cards -->
+    <div class="contact-info-card">
+      <div class="contact-icon">📍</div>
+      <div>
+        <h4>Our Office</h4>
+        <p>123 Tech Park, Hyderabad<br/>Telangana, India 500032</p>
+      </div>
+    </div>
+    <div class="contact-info-card">
+      <div class="contact-icon">📞</div>
+      <div>
+        <h4>Phone</h4>
+        <p>+91 98765 43210<br/>Mon – Fri, 9am – 6pm IST</p>
+      </div>
+    </div>
+    <div class="contact-info-card">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <h4>Email</h4>
+        <p>hello@luxora.com<br/>support@luxora.com</p>
+      </div>
+    </div>
+
+    <!-- Map placeholder -->
+    <div class="map-placeholder">
+      <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="160" rx="12" fill="#1a1a2e" />
+        <rect x="20" y="30" width="80" height="40" rx="4" fill="#16213e" />
+        <rect x="120" y="50" width="100" height="30" rx="4" fill="#16213e" />
+        <rect x="20" y="90" width="120" height="30" rx="4" fill="#16213e" />
+        <rect x="160" y="100" width="60" height="30" rx="4" fill="#16213e" />
+        <circle cx="150" cy="75" r="10" fill="#c9a96e" opacity="0.8" />
+        <circle cx="150" cy="75" r="4" fill="#fff" />
+        <circle cx="150" cy="75" r="16" fill="none" stroke="#c9a96e" stroke-width="1.5" opacity="0.4" />
+        <text x="150" y="140" text-anchor="middle" fill="#c9a96e" font-size="10" font-family="sans-serif">Hyderabad, Telangana</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <div class="contact-form-wrap">
+      <h3>Send a Message</h3>
+      <form id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="contactName" placeholder="Aditya Mehta" required />
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input type="email" id="contactEmail" placeholder="you@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="contactSubject" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option value="order">Order Inquiry</option>
+            <option value="product">Product Question</option>
+            <option value="return">Return / Refund</option>
+            <option value="shipping">Shipping Issue</option>
+            <option value="general">General Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="contactMessage" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+        </div>
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="newsletter" />
+            <span class="checkbox-custom"></span>
+            Subscribe to our newsletter for exclusive deals
+          </label>
+        </div>
+        <button type="submit" class="btn-primary btn-full">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast">
+  <div class="toast-icon">✓</div>
+  <div class="toast-text">
+    <strong>Message Sent!</strong>
+    <span>We'll get back to you within 24 hours.</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">LUX<span>ORA</span></a>
+      <p>Timeless essentials for the modern minimalist. Designed with care, crafted with intention.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="footer-links">
+      <h4>Support</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Shipping Info</a>
+      <a href="#">Returns</a>
+    </div>
+    <div class="footer-links">
+      <h4>Connect</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 LUXORA. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

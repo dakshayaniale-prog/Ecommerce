@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart — LUXORA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html" class="logo">LUX<span>ORA</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Shop</a></li>
+    <li><a href="cart.html" class="active">Cart <span class="cart-badge" id="cartBadge">0</span></a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="section-tag">— Your Selection</p>
+  <h2>Shopping Cart</h2>
+</div>
+
+<!-- CART LAYOUT -->
+<section class="cart-section">
+
+  <!-- EMPTY STATE (shown when cart is empty) -->
+  <div class="cart-empty" id="cartEmpty">
+    <div class="empty-icon">🛒</div>
+    <h3>Your cart is empty</h3>
+    <p>Looks like you haven't added anything yet. Let's fix that!</p>
+    <a href="index.html" class="btn-primary">Browse Products</a>
+  </div>
+
+  <!-- CART CONTENT (shown when cart has items) -->
+  <div class="cart-content" id="cartContent" style="display:none;">
+    <div class="cart-left">
+      <div class="cart-items-header">
+        <span>Product</span>
+        <span>Price</span>
+        <span>Qty</span>
+        <span>Total</span>
+        <span></span>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <!-- Injected via JS -->
+      </div>
+      <div class="cart-actions">
+        <button class="btn-ghost" onclick="clearCart()">🗑 Clear Cart</button>
+        <a href="index.html" class="btn-ghost">← Continue Shopping</a>
+      </div>
+    </div>
+
+    <div class="cart-right">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="shipping">Free</span></div>
+        <div class="summary-row"><span>Tax (5%)</span><span id="tax">₹0</span></div>
+        <div class="summary-divider"></div>
+        <div class="summary-row summary-total"><span>Total</span><span id="total">₹0</span></div>
+
+        <!-- Promo code -->
+        <div class="promo-wrap">
+          <label>Promo Code</label>
+          <div class="promo-input-row">
+            <input type="text" id="promoInput" placeholder="e.g. LUXORA10" />
+            <button class="btn-promo" onclick="applyPromo()">Apply</button>
+          </div>
+          <p class="promo-msg" id="promoMsg"></p>
+        </div>
+
+        <button class="btn-checkout" onclick="checkout()">Proceed to Checkout</button>
+        <p class="secure-note">🔒 Secure checkout — SSL encrypted</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h3>Checkout</h3>
+    <p class="modal-sub">Fill in your details to place your order</p>
+
+    <form id="checkoutForm" onsubmit="placeOrder(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Aditya Mehta" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="9876543210" required />
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" placeholder="Hyderabad" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" placeholder="123 Main Street, Apt 4B" required />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Pincode</label>
+          <input type="text" placeholder="500001" required />
+        </div>
+        <div class="form-group">
+          <label>Payment Method</label>
+          <select required>
+            <option value="" disabled selected>Select method</option>
+            <option>UPI</option>
+            <option>Credit / Debit Card</option>
+            <option>Cash on Delivery</option>
+            <option>Net Banking</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn-checkout">Place Order</button>
+    </form>
+  </div>
+</div>
+
+<!-- ORDER SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal modal-success">
+    <div class="success-icon">✓</div>
+    <h3>Order Placed!</h3>
+    <p>Thank you! Your order has been successfully placed. We'll send a confirmation to your email shortly.</p>
+    <a href="index.html" class="btn-primary">Continue Shopping</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
